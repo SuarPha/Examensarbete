@@ -1,0 +1,54 @@
+$color: #f46f06;
+$red: #b01407;
+
+.container{
+    height: 50vh;
+    width: auto;
+    display: flex;
+    background-color: $color;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    
+    .heroContent{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 0 30px;
+        align-items: center;
+    }
+    p{
+        padding-top: 15px;
+    }
+    span {
+        color: whitesmoke;
+        font-size: 2rem;
+        font-weight: bold;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    button{
+
+        display: inline-block;
+        outline: 0;
+        text-align: center;
+        cursor: pointer;
+        padding: 17px 30px;
+        border: 0;
+        color: #fff;
+        font-size: 17.5px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        border-color: $red;
+        color: $red;
+        background: transparent;
+        font-weight: 800;
+        line-height: 30px;
+        transition: $red, color .1s ease-in-out;
+        
+        &:hover {
+            background-color: #000;
+            color: rgb(255, 255, 255);
+        }
+        
+    }
+}
