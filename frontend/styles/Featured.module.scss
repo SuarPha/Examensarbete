@@ -123,7 +123,27 @@ $primary: #fff4f0  ;
 @media screen and (max-width: 480px) {
     .container{
         height: 50vh;
-        background-color: aquamarine;
+        background-color: rgb(255, 255, 255);
+    }
+    .h1{
+        font-size: 1em; 
+    }
+    .imgContainer img{
+        height:60%;
+        width:60%;
+    }
+  
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .container{
+        background: 
+        #faa300  !important;
+      }
+   }
+@media screen and (max-width: 480px) {
+    .container{
+        height: 50vh;
+        background-color: rgb(255, 255, 255);
     }
     .h1{
         font-size: 1em; 

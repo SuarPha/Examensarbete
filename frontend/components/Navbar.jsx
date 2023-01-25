@@ -36,7 +36,6 @@ const Navbar = () => {
             <Image src="/img/logo.png" alt="" width="65" height="70" />
             </Link>
             <li className={styles.listItem}>About</li>
-            <li className={styles.listItem}>Blog</li>
             <li className={styles.listItem}>Contact Us</li>
           </ul>
          </div>

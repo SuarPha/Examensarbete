@@ -19,7 +19,7 @@ const Cart = () => {
     const [open, setOpen] = useState(false);
     const [cash, setCash] = useState(false);
     const amount = cart.total;
-    const currency = "Kr";
+    const currency = "SEK";
     const style = {"layout":"vertical"};
     const dispatch = useDispatch();
     const router = useRouter();
@@ -166,7 +166,8 @@ const Cart = () => {
                         "client-id": //paypal bussiness account
                         "AXGe9RDjH9pepc0KLT2sXuuHMEYAr4dcA_2muENav9SjLe-MSmt3UzYG3l6xvCCtLIs_t-lg74TF96e4",
                         components: "buttons",
-                        currency: "SEK"
+                        currency: "SEK",
+                        debug: true
                     }}
                     >
                     <ButtonWrapper
@@ -180,7 +181,7 @@ const Cart = () => {
                     )}
             </div>
         </div> 
-        {cash && <OrderDetail total={cart.total} createOrder={createOrder} /> } 
+        { /*cash && <OrderDetail total={cart.total} createOrder={createOrder} /> */} 
     </div>
   )
 }
