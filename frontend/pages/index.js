@@ -31,7 +31,10 @@ export default function Home({pizzaList}) {
   );
 }
 // Fetch API:er
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (ctx) => {
+  const myCookie = ctx.req?.cookies || "";
+  let admin = false;
+
   const res = await axios.get("http://localhost:3000/api/products");
   return {
     props:{

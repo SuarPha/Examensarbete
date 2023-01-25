@@ -1,19 +1,18 @@
 .container{
 
-    padding-bottom: 20px;
-
+    padding-bottom: 30px;
+    margin-inline: 30px;
    
     .title{
         text-align: center;
         padding-top: 10px;
     }
     .icons{
-       
         display: flex;
         text-align: center;
         padding: 0 10px 10px 20px;
-        
-        
-    }
+        justify-content: center;
+        justify-content: space-evenly;
+    }   
    
 }
