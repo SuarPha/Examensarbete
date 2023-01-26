@@ -31,8 +31,10 @@ export default function Home({ pizzaList, admin} ) {
       <PizzaList pizzaList={pizzaList} />
       {/* If it's not close call another component */}
       {!close && <Add setClose={setClose} /> } 
+    
+      <div>MAP</div>
       </div>
-   
+
   );
 }
 // Fetch API:er
