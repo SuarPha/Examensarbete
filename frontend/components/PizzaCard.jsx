@@ -1,9 +1,24 @@
 import styles from "../styles/PizzaCard.module.scss"
 import Image from "next/image"
 import Link from "next/link"
+import axios from "axios"
+import { useState } from "react"
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/cartSlice";
 
 
-const PizzaCard = ({pizza}) => {
+const PizzaCard = ({pizza}) => { // <-- prop here
+  const [price, setPrice] = useState(pizza.prices[0]);
+  const dispatch = useDispatch();
+
+  const changePrice = (number) => {
+    setPrice(price + number);
+}
+  
+  const handleClick = ()=>{
+    dispatch(addProduct({...pizza,}));
+};
+
   return (
     <div className={styles.container}>
       <Link href={`/product/${pizza._id}`} passHref>
@@ -15,9 +30,19 @@ const PizzaCard = ({pizza}) => {
     <p className={styles.desc}> 
       {pizza.desc}
     </p>
-    <button className={styles.button}>Order Now</button>
+    
+    <button className={styles.button} onClick={handleClick}>Order Now</button>
+   
     </div>
   )
 }
-
+// Fetch API:er
+export const getServerSideProps = async ({params}) => {
+  const res = await axios.get(`http://localhost:3000/api/products/${params.id}`);
+  return {
+    props:{
+      pizza:res.data
+    }
+  }
+}
 export default PizzaCard

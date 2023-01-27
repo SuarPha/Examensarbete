@@ -1,7 +1,22 @@
 .container{
+    padding: 20px;
     background-color: beige;
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: center;
+
+    .item{
+        padding-bottom:10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .text{
+        display: flex;
+        flex-direction: column;
+    }
+    span{
+        font-weight: 300;
+
+    }
 }

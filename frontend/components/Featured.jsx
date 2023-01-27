@@ -1,17 +1,22 @@
 import styles from "../styles/Featured.module.scss"
 import Image from "next/image"
 import { useState } from "react";
+import axios from "axios"
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/cartSlice";
 
 
 const Featured = () => {
 
   const [index, setIndex] = useState(0);
+  const dispatch = useDispatch();
 
-  const images = [
-    "/img/pizza-featured.png",
-    "/img/pizza-featured1.png",
-    "/img/pizza-featured2.png",
-  ];
+
+    const images = [
+      "/img/pizza-featured.png",
+      "/img/pizza-featured1.png",
+      "/img/pizza-featured2.png",
+    ];
 
   const handleArrow = (direction) => {
     if(direction === "l") {
@@ -21,6 +26,10 @@ const Featured = () => {
       setIndex(index !== 2 ? index+ 1 : 0)
     }
   }
+
+  const handleClick = ()=>{
+    dispatch(addProduct({...pizza, extras, price, quantity}));
+};
  // console to check if handleArrow function works
 
   return (
@@ -41,13 +50,12 @@ const Featured = () => {
                   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                   <span>SEK 129</span>
                
-                    <button>Order Now</button> 
+                    <button onClick={handleClick}>Order Now</button> 
               </div> 
               <Image src={img}  alt="" width={900} height={850}/* layout="fill" objectFit="contain" */ />
               
               </div>
             
-             
           ))}
         
        </div>
@@ -57,6 +65,15 @@ const Featured = () => {
     </div>
     
   )
+}
+// Fetch API:er
+export const getServerSideProps = async ({params}) => {
+  const res = await axios.get(`http://localhost:3000/api/products/${params.id}`);
+  return {
+    props:{
+      pizza:res.data
+    }
+  }
 }
 
 export default Featured

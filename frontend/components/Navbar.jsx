@@ -35,19 +35,22 @@ const Navbar = () => {
             <Link href="/">
             <Image src="/img/logo.png" alt="" width="65" height="70" />
             </Link>
+            <Link href="/about" >
             <li className={styles.listItem}>About</li>
+            </Link>
+            <Link href="/contact" >
             <li className={styles.listItem}>Contact Us</li>
+            </Link>
           </ul>
          </div>
-            <Link href="/cart">
-            <div className={styles.item}>
               <div className={styles.cart}>
-                <Image src="/img/cart.png" alt="" width="35" height="40" />
-              <div className={styles.counter}>{quantity}</div>
+                <Link href="/cart">
+                    <Image src="/img/cart.png" alt="" width="35" height="40" />
+                    <div className={styles.counter}>{quantity}</div>
+                 </Link>
+                
               </div>
             </div>
-            </Link>
-      </div>
   )
 }
 

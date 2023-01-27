@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 
 
-const Add = ({ setClose }) => {
+const Add = ({ setClose }) => { // we need the state to close/open modal as a prop
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState(null);
     const [desc, setDesc] = useState(null);
@@ -12,17 +12,18 @@ const Add = ({ setClose }) => {
     const [extraOptions, setExtraOptions] = useState([]);
     const [extra, setExtra] = useState(null);
 
-    const changPrice =(e, index) => {
+    const changPrice =(e, index) => { // Here you can find the current price then change and set new value
         const currentPrices = prices;
         currentPrices[index] = e.target.value;
         setPrices(currentPrices);
     }
 
     const handleExtraInput = (e) => {
-        setExtra({...extra, [e.target.name]: e.target.value });
+        setExtra({...extra, [e.target.name]: e.target.value }); // previous version of extra
     };
     const handleExtra = (e) => {
-        setExtraOptions((prev) => [...prev, extra]);
+        setExtraOptions((prev) => [...prev, // previous extra options // this is how to set state using previous data
+             extra]);  // additionally these extra which we have set in handleExtraInput function
     }
 
     const handleCreate = async () => {

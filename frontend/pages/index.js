@@ -9,6 +9,7 @@ import styles from '../styles/Home.module.scss';
 import { useState } from 'react';
 import AddButton from '../components/AddButton';
 import Add from '../components/Add';
+import Newsletter from '../components/Newsletter';
 
 
 export default function Home({ pizzaList, admin} ) {
@@ -32,7 +33,7 @@ export default function Home({ pizzaList, admin} ) {
       {/* If it's not close call another component */}
       {!close && <Add setClose={setClose} /> } 
     
-      <div>MAP</div>
+      < Newsletter/>
       </div>
 
   );

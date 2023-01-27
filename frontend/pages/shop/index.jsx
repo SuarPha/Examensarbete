@@ -8,7 +8,7 @@ const Shop = ({shop}) => {
   return (
     <div className={styles.container}>
         
-                <h1 className={styles.title}> SELECTED PIZZAS </h1>
+                <h1 className={styles.title}> OUR PIZZAS </h1>
                 <p className={styles.desc}>Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit, <br />
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
          

@@ -9,7 +9,7 @@ const Footer = () => {
             <Image src="/img/footer.jpg" 
               alt="footer image"
               width="550"
-              height="450"
+              height="550"
               loading="lazy"
               
             />
