@@ -11,14 +11,23 @@ const Index = ({orders, products}) => {
 
 
   const handleDelete = async(id)=>{
+    console.log(id);
     try{
       const res = await axios.delete("http://localhost:3000/api/products/" + id);
       setPizzaList(pizzaList.filter(pizza => pizza._id !== id));
     }catch(err){
       console.log(err);
     }
-  }
+  };
 
+  const handleEdit = async(id) =>{
+    try{
+      const res = await axios.put("http://localhost:3000/api/products/" + id);
+      setPizzaList(pizzaList.filter(pizza => pizza._id !== id));
+    }catch(err){
+      console.log(err);
+  }
+}
 
   const handeStatus = async(id) =>{ //Check order stutus by using async fuction
 
@@ -68,7 +77,8 @@ const Index = ({orders, products}) => {
                 <td>{product.title}</td>
                 <td>{product.prices[0]} Kr</td>
                 <td>
-                  <button className={styles.button}>Edit</button>
+                  <button className={styles.button} 
+                  onClick={()=>handleEdit(product._id)}>Edit</button>
                   <button className={styles.button} 
                   onClick={()=>handleDelete(product._id)}>Delete</button>
                 </td>
@@ -92,7 +102,7 @@ const Index = ({orders, products}) => {
                 <th>Action</th>
               </tr>
             </tbody>
-            {orderList.map((order)=>(
+            {orderList?.map((order)=>(
             <tbody key={order._id}>
               <tr className={styles.trTtile}>
                 <td>
@@ -116,22 +126,23 @@ const Index = ({orders, products}) => {
 export const getServerSideProps = async (ctx)=>{
     const myCookie = ctx.req?.cookies || ""; 
 
-    if(myCookie.token !== process.env.TOKEN){
+     if(myCookie.token !== process.env.TOKEN){
       return{
         redirect:{
-          destination:"/admin/login",
+          destination: "/admin/login",
           permanent: false,
-        }
-      }
-    }
-    const productRes = await axios.get("http://localhost:3000/api/products");
-    const orderRes = await axios.get("http://localhost:3000/api/orders");
-
-    return{
-      props: {
-        orders:orderRes.data,
-        products:productRes.data
-      }
-    }
+        },
+      };
 }
+
+const productRes = await axios.get("http://localhost:3000/api/products");
+const orderRes = await axios.get("http://localhost:3000/api/orders");
+
+return{
+  props:{
+    order: orderRes.data,
+    products: productRes.data,
+  },
+};
+};
 export default Index;

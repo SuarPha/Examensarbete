@@ -3,6 +3,7 @@ import PizzaCard from "./PizzaCard"
 
 
 const PizzaList = ({pizzaList}) => {
+
   return (
     <div className={styles.container}>
         

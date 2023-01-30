@@ -15,8 +15,8 @@ const PizzaCard = ({pizza}) => { // <-- prop here
     setPrice(price + number);
 }
   
-  const handleClick = ()=>{
-    dispatch(addProduct({...pizza,}));
+const handleClick = ()=>{
+  dispatch(addProduct({...pizza, quantity: 1}));
 };
 
   return (
@@ -26,7 +26,7 @@ const PizzaCard = ({pizza}) => { // <-- prop here
       </Link>
  
      <h1 className={styles.title}>{pizza.title}</h1>
-    <span className={styles.price}>{pizza.prices[0]} Kr</span>
+    <span className={styles.price}>{pizza.prices} Kr</span>
     <p className={styles.desc}> 
       {pizza.desc}
     </p>

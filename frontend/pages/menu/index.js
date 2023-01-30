@@ -13,11 +13,11 @@ const Menu = () => {
             <span> PERSONAL </span>
   <p>1 TOPPING SEK 129.00 ———- UNLIMITED SEK 149.00 <br/>
               <span> MEDIUM </span>
-  1 TOPPING SEK 119.00 ———- UNLIMITED SEK 149.00 <br/>
+              <p>1 TOPPING SEK 119.00 ———- UNLIMITED SEK 149.00 </p><br/>
               <span> GLUTEN FREE  </span>
-  1 TOPPING SEK 129.00 ———- UNLIMITED SEK 159.00 <br/>
+              <p>1 TOPPING SEK 129.00 ———- UNLIMITED SEK 159.00</p> <br/>
               <span> CALZONE </span>
-  3 TOPPING : SEK 15.00———– 5 TOPPING : SEK 20.00 <br/>
+              <p>3 TOPPING : SEK 15.00———– 5 TOPPING : SEK 20.00</p> <br/>
   </p>
 </div> 
   <hr/>
